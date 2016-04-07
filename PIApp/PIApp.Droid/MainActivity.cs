@@ -6,13 +6,13 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.IO;
 
 namespace PIApp.Droid
 {
 	[Activity (Label = "PIApp", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : TabActivity
 	{
-		int count = 1;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -21,23 +21,26 @@ namespace PIApp.Droid
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
             ActionBar.Hide();
-            CreateTab(typeof(PartyActivity), "party", "Party", Resource.Drawable.drinking);
-            CreateTab(typeof(StatusActivity), "status", "Státusz", Resource.Drawable.status);
-            CreateTab(typeof(TravelActivity), "travel", "Utazás", Resource.Drawable.Icon);
-            CreateTab(typeof(StatisticsActivity), "statistics", "Statisztika", Resource.Drawable.stats);
-            CreateTab(typeof(SettingsActivity), "settings", "Profil", Resource.Drawable.profile);
 
-            /* az egyes activitylayoutok belseje
+            //Create tabs
+            CreateTab(typeof(PartyActivity), "party", "Buli", Resource.Drawable.Icon);
+            CreateTab(typeof(StatusActivity), "status", "Én", Resource.Drawable.Icon);
+            CreateTab(typeof(TravelActivity), "travel", "Taxi", Resource.Drawable.Icon);
+            CreateTab(typeof(StatisticsActivity), "statistics", "Statisztika", Resource.Drawable.Icon);
+            CreateTab(typeof(SettingsActivity), "settings", "Profil", Resource.Drawable.Icon);
              
-             <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:drawable="@drawable/ic_tab_whats_on_selected"
-        android:state_selected="true" />
-    <item
-        android:drawable="@drawable/ic_tab_whats_on_unselected" />
-</selector>
-             
-             */
+
+            //Define profile data location
+            var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var filename = Path.Combine(path.ToString(), "profile.piapp");
+
+            //Check profile data exist
+            if (checkFileExist(filename) == false)
+            {
+                ShowAlert("Üdvözöllek! Kérlek készítsd el a profilodat!");
+                TabHost.SetCurrentTabByTag("settings");
+            }
+            
             // Get our button from the layout resource,
             // and attach an event to it
             //Button button = FindViewById<Button> (Resource.Id.myButton);
@@ -59,6 +62,28 @@ namespace PIApp.Droid
 
             TabHost.AddTab(spec);
         }
+
+        private bool checkFileExist(string filenamewithpath)
+        {
+            bool exist = File.Exists(filenamewithpath);
+            return exist;
+        }
+
+        public void ShowAlert(string str)
+        {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.SetTitle(str);
+            alert.SetPositiveButton("OK", (senderAlert, args) => {
+                // write your own set of instructions
+            });
+
+            //run the alert in UI thread to display in the screen
+            RunOnUiThread(() => {
+                alert.Show();
+            });
+        }
+
+
     }
 }
 

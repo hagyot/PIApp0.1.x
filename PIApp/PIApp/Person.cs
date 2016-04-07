@@ -38,6 +38,11 @@ namespace PIApp
             return firstname;
         }
 
+        public String getPassword()
+        {
+            return password;
+        }
+
         public String getLastName()
         {
             return lastname;

@@ -19,7 +19,7 @@ namespace PIApp.Droid
         {
             base.OnCreate(savedInstanceState);
             TextView textview = new TextView(this);
-            textview.Text = "This is the travel tab";
+            textview.Text = "Az utazás funkció jelenleg még nem elérhetõ. Kérlek gyere vissza késõbb!";
             SetContentView(textview);
             // Create your application here
         }
