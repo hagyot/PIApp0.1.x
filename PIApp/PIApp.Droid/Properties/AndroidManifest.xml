@@ -1,5 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.piapp"
+          android:versionCode="1"
+          android:versionName="0.1">
 	<uses-sdk android:minSdkVersion="15" />
-	<application></application>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<application
+    android:icon="@drawable/drinking"
+    android:label="@string/app_name">
+    <activity
+      android:name=".MainActivity"
+      android:label="@string/title_activity_main">
+      <intent-fileter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-fileter>
+    </activity>
+    <activity android:name=".PartyActivity"/>
+    <activity android:name=".SettingsActivity"/>
+    <activity android:name=".StatisticsActivity"/>
+    <activity android:name=".StatusActivity"/>
+    <activity android:name=".TravelActivity"/>
+  </application>
 </manifest>

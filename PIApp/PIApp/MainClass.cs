@@ -2,9 +2,9 @@
 
 namespace PIApp
 {
-	public class MyClass
+	public class MainClass
 	{
-		public MyClass ()
+		public MainClass ()
 		{
 		}
 	}

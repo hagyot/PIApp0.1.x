@@ -45,7 +45,19 @@ namespace PIApp.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int drinking = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int profile = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int stats = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int status = 2130837508;
 			
 			static Drawable()
 			{
@@ -60,8 +72,71 @@ namespace PIApp.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050015
+			public const int cmdSave = 2131034133;
+			
+			// aapt resource value: 0x7f050014
+			public const int dpBirthday = 2131034132;
+			
+			// aapt resource value: 0x7f050010
+			public const int genderGroup = 2131034128;
+			
+			// aapt resource value: 0x7f050012
+			public const int rbFemale = 2131034130;
+			
+			// aapt resource value: 0x7f050011
+			public const int rbMale = 2131034129;
+			
 			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			public const int textView1 = 2131034112;
+			
+			// aapt resource value: 0x7f050013
+			public const int textView10 = 2131034131;
+			
+			// aapt resource value: 0x7f050001
+			public const int textView2 = 2131034113;
+			
+			// aapt resource value: 0x7f050003
+			public const int textView3 = 2131034115;
+			
+			// aapt resource value: 0x7f050005
+			public const int textView4 = 2131034117;
+			
+			// aapt resource value: 0x7f050007
+			public const int textView5 = 2131034119;
+			
+			// aapt resource value: 0x7f050009
+			public const int textView6 = 2131034121;
+			
+			// aapt resource value: 0x7f05000b
+			public const int textView7 = 2131034123;
+			
+			// aapt resource value: 0x7f05000d
+			public const int textView8 = 2131034125;
+			
+			// aapt resource value: 0x7f05000f
+			public const int textView9 = 2131034127;
+			
+			// aapt resource value: 0x7f05000c
+			public const int txtAddress = 2131034124;
+			
+			// aapt resource value: 0x7f050002
+			public const int txtFirstname = 2131034114;
+			
+			// aapt resource value: 0x7f050008
+			public const int txtHeight = 2131034120;
+			
+			// aapt resource value: 0x7f05000e
+			public const int txtIce = 2131034126;
+			
+			// aapt resource value: 0x7f050004
+			public const int txtLastname = 2131034116;
+			
+			// aapt resource value: 0x7f050006
+			public const int txtPassword = 2131034118;
+			
+			// aapt resource value: 0x7f05000a
+			public const int txtWeight = 2131034122;
 			
 			static Id()
 			{
@@ -78,6 +153,21 @@ namespace PIApp.Droid
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int PartyLayout = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int settingsLayout = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int StatisticsLayout = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int StatusLayout = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int TravelLayout = 2130903045;
 			
 			static Layout()
 			{
@@ -97,6 +187,9 @@ namespace PIApp.Droid
 			
 			// aapt resource value: 0x7f040000
 			public const int hello = 2130968576;
+			
+			// aapt resource value: 0x7f040002
+			public const int title_activity_main = 2130968578;
 			
 			static String()
 			{

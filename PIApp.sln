@@ -13,7 +13,10 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PIApp", "PIApp\PIApp\PIApp.
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		PIApp\PIApp\PIApp.projitems*{739e3e8e-ee52-43cb-8368-53fae23a2f51}*SharedItemsImports = 4
+		PIApp\PIApp\PIApp.projitems*{aa5e5d06-88c6-400b-aee4-d2e467288e6f}*SharedItemsImports = 4
 		PIApp\PIApp\PIApp.projitems*{a38bbf56-b771-4e96-b382-1355cadeb50a}*SharedItemsImports = 13
+		PIApp\PIApp\PIApp.projitems*{23a68af2-0e72-4386-bd3d-25a7bafeaa1c}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AppStore|Any CPU = AppStore|Any CPU

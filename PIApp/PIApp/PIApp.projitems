@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -9,6 +9,26 @@
     <Import_RootNamespace>PIApp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Whisky.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Vodka.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Vermut.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tequila.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Rum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pezsgo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Palinka.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Longdrink.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Koktellikor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Likor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Konyak.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Keserulikor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ciderradler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Brandy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Abszint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drink.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Person.cs" />
   </ItemGroup>
 </Project>
