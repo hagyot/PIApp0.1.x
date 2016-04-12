@@ -99,7 +99,7 @@ namespace PIApp.Droid
 
                 if (checkFill(firstname, lastname, password, height, weight, address) == false)
                 {
-                    ShowAlert("A csillaggal jelölt mezõk kitöltése kötelezõ!");
+                    ShowAlert("Hiba!","A csillaggal jelölt mezõk kitöltése kötelezõ!");
                 }
                 else
                 {
@@ -118,7 +118,7 @@ namespace PIApp.Droid
 
                     Person user = new Person(firstname.Text, lastname.Text, Convert.ToSingle(height.Text), Convert.ToDouble(weight.Text), address.Text, ice.Text, gender, birthday.DateTime, password.Text);
                     WriteProfileToFile(user);
-                    ShowAlert("A profil mentése sikeres volt!");
+                    ShowAlert("Mentés","A profil mentése sikeres volt!");
 
                 }
             };
@@ -136,10 +136,11 @@ namespace PIApp.Droid
             return filled;
         }
 
-        public void ShowAlert(string str)
+        public void ShowAlert(string title, string message)
         {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            alert.SetTitle(str);
+            alert.SetTitle(title);
+            alert.SetMessage(message);
             alert.SetPositiveButton("OK", (senderAlert, args) => {
                 // write your own set of instructions
             });
@@ -177,7 +178,7 @@ namespace PIApp.Droid
             }
             catch (IOException e)
             {
-                ShowAlert("A profil mentése nem sikerült! Hiba:" + e);
+                ShowAlert("Hiba!","A profil mentése nem sikerült! Hiba:" + e);
             }
             finally
             {
@@ -200,7 +201,7 @@ namespace PIApp.Droid
             }
             catch(IOException e)
             {
-                ShowAlert("A profil beolvasása nem sikerült! Hiba: " + e);
+                ShowAlert("Hiba!","A profil beolvasása nem sikerült! Hiba: " + e);
             }
             finally
             {

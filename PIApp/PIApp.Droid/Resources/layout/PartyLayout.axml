@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:state_selected="true"
-        android:drawable="@drawable/Icon" />
-    <item
-        android:state_selected="false"
-        android:drawable="@drawable/Icon" />
-</selector>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<!-- Here you put the rest of your current view-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/partylayout">
+        <ImageButton
+            android:src="@drawable/icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/elozoKor"
+            android:scaleType="fitXY"
+            android:clickable="false"
+            android:visibility="gone" />
+        <ImageButton
+            android:src="@drawable/icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ujKor"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+        <ImageButton
+            android:src="@drawable/drinking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/startParty"
+            android:scaleType="fitXY" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/partyName"
+            android:capitalize="sentences"
+            android:hint="Buli neve"
+            android:gravity="center"
+            android:inputType="textCapSentences" />
+    </LinearLayout>
+</ScrollView>

@@ -23,11 +23,11 @@ namespace PIApp.Droid
             ActionBar.Hide();
 
             //Create tabs
-            CreateTab(typeof(PartyActivity), "party", "Buli", Resource.Drawable.Icon);
-            CreateTab(typeof(StatusActivity), "status", "Én", Resource.Drawable.Icon);
-            CreateTab(typeof(TravelActivity), "travel", "Taxi", Resource.Drawable.Icon);
-            CreateTab(typeof(StatisticsActivity), "statistics", "Statisztika", Resource.Drawable.Icon);
-            CreateTab(typeof(SettingsActivity), "settings", "Profil", Resource.Drawable.Icon);
+            CreateTab(typeof(PartyActivity), "party", "Buli", Resource.Drawable.drinking);
+            CreateTab(typeof(StatusActivity), "status", "Én", Resource.Drawable.status);
+            //CreateTab(typeof(TravelActivity), "travel", "Taxi", Resource.Drawable.Icon);
+            CreateTab(typeof(StatisticsActivity), "statistics", "Bulik", Resource.Drawable.stats);
+            CreateTab(typeof(SettingsActivity), "settings", "Profil", Resource.Drawable.profile);
              
 
             //Define profile data location
@@ -57,7 +57,8 @@ namespace PIApp.Droid
 
             var spec = TabHost.NewTabSpec(tag);
             var drawableIcon = Resources.GetDrawable(drawableId);
-            spec.SetIndicator(label, drawableIcon);
+            //spec.SetIndicator(label, drawableIcon);
+            spec.SetIndicator("", drawableIcon);
             spec.SetContent(intent);
 
             TabHost.AddTab(spec);

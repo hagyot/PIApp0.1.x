@@ -9,6 +9,8 @@
     <Import_RootNamespace>PIApp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Party.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Round.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Whisky.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Vodka.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Vermut.cs" />
