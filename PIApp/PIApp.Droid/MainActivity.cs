@@ -25,7 +25,7 @@ namespace PIApp.Droid
             //Create tabs
             CreateTab(typeof(PartyActivity), "party", "Buli", Resource.Drawable.drinking);
             CreateTab(typeof(StatusActivity), "status", "Én", Resource.Drawable.status);
-            //CreateTab(typeof(TravelActivity), "travel", "Taxi", Resource.Drawable.Icon);
+            CreateTab(typeof(TravelActivity), "travel", "Taxi", Resource.Drawable.Icon);
             CreateTab(typeof(StatisticsActivity), "statistics", "Bulik", Resource.Drawable.stats);
             CreateTab(typeof(SettingsActivity), "settings", "Profil", Resource.Drawable.profile);
              
