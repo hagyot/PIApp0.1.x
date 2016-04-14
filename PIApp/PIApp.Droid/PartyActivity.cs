@@ -25,9 +25,12 @@ namespace PIApp.Droid
         ImageButton startParty;
         ImageButton endParty;
         EditText bulinev;
+
+        string startpartystr;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            
+
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.PartyLayout);
 
@@ -68,28 +71,28 @@ namespace PIApp.Droid
                     }
                     else
                     {
-                    //Változók definiálása
-                    string partyname = bulinev.Text;
+                        //Változók definiálása
+                        string partyname = bulinev.Text;
                         var startparty = DateTime.Now;
-                        string startpartystr = startparty.ToString("yyyy.MM.dd hh:mm");
+                        startpartystr = startparty.ToString("yyyy.MM.dd hh:mm");
                         party = new Party(partyname, startparty);
 
-                    //Kiírandó lista létrehozása
+                        //Kiírandó lista létrehozása
 
-                    List<string> current = new List<string>();
+                        List<string> current = new List<string>();
 
                         current.Add(partyname);
                         current.Add(startpartystr);
-                    //A buli kiírása a folyamatban lévõ bulit jelzõ fájlba (current.piapp)
-                    //Buli neve, kezdés ideje
+                        //A buli kiírása a folyamatban lévõ bulit jelzõ fájlba (current.piapp)
+                        //Buli neve, kezdés ideje
 
-                    WriteToFile(current, "current.piapp");
+                        WriteToFile(current, "current.piapp");
 
 
 
-                    //Felesleges dolgok eltûntetése
+                        //Felesleges dolgok eltûntetése
 
-                    bulinev.Visibility = ViewStates.Gone;
+                        bulinev.Visibility = ViewStates.Gone;
                         startParty.Visibility = ViewStates.Gone;
                         ujKor.Visibility = ViewStates.Visible;
                         elozoKor.Visibility = ViewStates.Visible;
@@ -106,7 +109,7 @@ namespace PIApp.Droid
                 List<string> currentpiappbeolvasas = new List<string>();
                 currentpiappbeolvasas = ReadFromFile("current.piapp");
                 //Ellenõrizzük, hogy a fájl üres-e
-                if (currentpiappbeolvasas.Count <2 )
+                if (currentpiappbeolvasas.Count < 2)
                 {
                     DeleteFile("current.piapp");
                     //Restart
@@ -119,24 +122,66 @@ namespace PIApp.Droid
 
                     party = new Party(currentpiappbeolvasas[0], Convert.ToDateTime(currentpiappbeolvasas[1]));
 
-                    //Rendrakás a kijelzõn
+                    //Ellenõrizzük, hogy történt-e már ivás (megvan-e a fájl)
+                    string partyname = currentpiappbeolvasas[0];
+                    var path2 = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                    var currentdrinks = Path.Combine(path2.ToString(), partyname + "drinks.piapp");
 
-                    bulinev.Visibility = ViewStates.Gone;
-                    startParty.Visibility = ViewStates.Gone;
-                    ujKor.Visibility = ViewStates.Visible;
-                    elozoKor.Visibility = ViewStates.Visible;
-                    endParty.Visibility = ViewStates.Visible;
+                    if (File.Exists(currentdrinks))
+                    {
+
+                        List<string> drinklist = new List<string>();
+                        drinklist = ReadFromFile(startpartystr + partyname + "drinks.piapp");
+                        ShowAlert("Teszt", drinklist.Count.ToString());
+
+                        //Rendrakás a kijelzõn
+
+                        bulinev.Visibility = ViewStates.Gone;
+                        startParty.Visibility = ViewStates.Gone;
+                        ujKor.Visibility = ViewStates.Visible;
+                        elozoKor.Visibility = ViewStates.Visible;
+                        elozoKor.Enabled = true;
+                        endParty.Visibility = ViewStates.Visible;
+                    }
+
+                    else
+
+                    {
+                        //Rendrakás a kijelzõn
+
+                        bulinev.Visibility = ViewStates.Gone;
+                        startParty.Visibility = ViewStates.Gone;
+                        ujKor.Visibility = ViewStates.Visible;
+                        elozoKor.Visibility = ViewStates.Visible;
+                        endParty.Visibility = ViewStates.Visible;
+                    }
+
+
+
                 }
             }
 
+            //Elõzõ kör ismétlése gomb megnyomása
+            elozoKor.Click += delegate
+            {
+
+            };
+
+            //Új kör gomb megnyomása
+            ujKor.Click += delegate
+            {
+                ShowDrink();
+            };
+
+            //Buli vége gomb megnyomása
             endParty.Click += delegate
            {
-              
+
                ShowYesNo("Buli vége", "Biztosan befejezted a bulizást?");
            };
 
 
-            }
+        }
         private int ConvertPixelsToDp(float pixelValue)
         {
             var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
@@ -148,23 +193,49 @@ namespace PIApp.Droid
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.SetTitle(title);
             alert.SetMessage(message);
-            alert.SetPositiveButton("OK", (senderAlert, args) => {
+            alert.SetPositiveButton("OK", (senderAlert, args) =>
+            {
                 // write your own set of instructions
             });
 
             //run the alert in UI thread to display in the screen
-            RunOnUiThread(() => {
+            RunOnUiThread(() =>
+            {
                 alert.Show();
             });
         }
 
-        
+        public void ShowDrink()
+        {
+            /*var alert = new AlertDialog.Builder(this);
+            alert.SetView(LayoutInflater.Inflate(Resource.Layout.DrinkPickerLayout, null));
+            alert.Create().Show();*/
+
+            //Dialog alert = new Dialog(this);
+            //alert.SetContentView(StartActivity(typeof(Drinking)));
+            StartActivity(typeof(Drinking));
+            /*alert.SetContentView(LayoutInflater.Inflate(Resource.Layout.DrinkPickerLayout, null));
+            alert.SetTitle("Új kör hozzáadása");
+            
+
+            string[] quantity = new string[] { "1cl", "2cl", "3cl", "4cl", "5cl", "1dl", "2dl", "3dl", "4dl", "5dl" };
+            View drinkpicker = LayoutInflater.Inflate(Resource.Layout.DrinkPickerLayout, null);
+            ListView lv = (ListView)drinkpicker.FindViewById(Resource.Id.lvQuantity);
+            Button drink = (Button)drinkpicker.FindViewById(Resource.Id.cmdDrink);
+
+            lv.SetAdapter(new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem2, quantity));
+            alert.Show();*/
+
+
+        }
+
         public void ShowYesNo(string title, string message)
         {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.SetTitle(title);
             alert.SetMessage(message);
-            alert.SetPositiveButton("Igen", (senderAlert, args) => {
+            alert.SetPositiveButton("Igen", (senderAlert, args) =>
+            {
                 //Megadjuk az aktuális dátumot az endpartynak, töröljük a currentet, újra megjelenítjük amit kell
                 party.setEnd(DateTime.Now.ToLocalTime());
                 DeleteFile("current.piapp");
@@ -175,9 +246,9 @@ namespace PIApp.Droid
             });
             alert.SetNegativeButton("Nem", (senderAlert, args) =>
             {
-             //NOTHING HAPPENS HERE
+                //NOTHING HAPPENS HERE
             });
-                alert.Show();
+            alert.Show();
         }
 
         //Fájlbaírás/////////////////////////////////////////////
@@ -194,10 +265,10 @@ namespace PIApp.Droid
             StreamWriter streamWriter = new StreamWriter(filename, true);
             try
             {
-                for(int i=0; i<message.Count; ++i)
+                for (int i = 0; i < message.Count; ++i)
                 {
                     streamWriter.WriteLine(message.ElementAt<string>(i));
-                } 
+                }
             }
             catch (IOException e)
             {
@@ -219,11 +290,21 @@ namespace PIApp.Droid
 
             try
             {
-                for (int i = 0; i < 2; ++i)
+                /* for (int i = 0; i < 2; ++i)
+                 {
+                     content.Add(streamReader.ReadLine());
+                 }
+                 */
+
+                while (!streamReader.EndOfStream)
                 {
                     content.Add(streamReader.ReadLine());
+                    ShowAlert("teszt", streamReader.ReadLine());
                 }
-                
+            
+
+
+
             }
             catch (IOException e)
             {
@@ -237,19 +318,54 @@ namespace PIApp.Droid
             return content;
         }
 
+        private List<string> ReadFromPartyFile(string fname)
+        {
+            var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var filename = Path.Combine(path.ToString(), fname);
+
+            List<string> content = new List<string>();
+            FileStream fs = null;
+            if (File.Exists(filename))
+            {
+                fs = File.Open(filename, FileMode.Open);
+                StreamReader sr = new StreamReader(fs);
+                try
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        content.Add(sr.ReadLine());
+                        ShowAlert("teszt", sr.ReadLine());
+                    }
+                }
+                catch (IOException ex)
+                {
+                    ShowAlert("Hiba", "A fájl olvasása nem sikerült! " + ex);
+                }
+                finally
+                {
+                    sr.Close();
+                    fs.Close();
+
+
+                }
+            }
+            else
+            {
+            }
+
+            return content;
+        }
+
         private void DeleteFile(string fname)
         {
             var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             var filename = Path.Combine(path.ToString(), fname);
 
             if (File.Exists(filename))
-               {
-                   File.Delete(filename);
-               }
+            {
+                File.Delete(filename);
+            }
         }
-
-
-
 
     }
 }

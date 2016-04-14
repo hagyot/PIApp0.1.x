@@ -4,13 +4,14 @@ using System.Text;
 
 namespace PIApp
 {
-    abstract class Drink
+    public abstract class Drink
     {
         //define fields
         public string name;
         public string vvpercent;
         public string type;
         public bool custom;
+        public int id;
 
         //define constructor
         /*public Drink(string name, string vvpercent, bool custom)

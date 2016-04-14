@@ -47,6 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drinking.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PartyActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -75,6 +76,9 @@
     <AndroidResource Include="Resources\layout\StatisticsLayout.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\DrinkPickerLayout.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -99,6 +103,39 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\drinking.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\bor.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\brandy.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\ciderradler.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\gin.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\keseru.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\koktellikor.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\konyak.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\longdrink.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\palinka.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\abszint.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\likor.txt" />
   </ItemGroup>
   <Import Project="..\PIApp\PIApp.projitems" Label="Shared" Condition="Exists('..\PIApp\PIApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

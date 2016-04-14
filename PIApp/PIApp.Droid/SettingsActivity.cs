@@ -16,7 +16,7 @@ namespace PIApp.Droid
     [Activity]
     public class SettingsActivity : Activity
     {
-        Person up; //user profile - red from file
+        Person up; //user profile - read from file
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -119,6 +119,8 @@ namespace PIApp.Droid
                     Person user = new Person(firstname.Text, lastname.Text, Convert.ToSingle(height.Text), Convert.ToDouble(weight.Text), address.Text, ice.Text, gender, birthday.DateTime, password.Text);
                     WriteProfileToFile(user);
                     ShowAlert("Mentés","A profil mentése sikeres volt!");
+                    //Restart
+                    StartActivity(typeof(MainActivity));
 
                 }
             };

@@ -1,0 +1,44 @@
+6,5%-os bor
+6.5%
+7%-os bor
+7%
+7,5%-os bor
+7.5%
+8%-os bor
+8%
+8,5%-os bor
+8.5%
+9%-os bor
+9%
+9,5%-os bor
+9.5%
+10%-os bor
+10%
+10,5%-os bor
+10.5%
+11%-os bor
+11%
+11,5%-os bor
+11.5%
+12%-os bor
+12%
+12,5%-os bor
+12.5%
+13%-os bor
+13%
+13,5%-os bor
+13.5%
+14%-os bor
+14%
+14,5%-os bor
+14.5%
+15%-os bor
+15%
+15,5%-os bor
+15.5%
+16%-os bor
+16%
+16,5%-os bor
+16.5%
+17%-os bor
+17%

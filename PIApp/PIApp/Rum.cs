@@ -6,12 +6,13 @@ namespace PIApp
 {
     class Rum : Drink
     {
-        public Rum(string name, string vvpercent, bool custom)
+        public Rum(string name, string vvpercent, bool custom, int id)
         {
             this.name = name;
             this.vvpercent = vvpercent;
             this.type = "Rum";
             this.custom = custom;
-    }
+            this.id = id;
+        }
     }
 }
