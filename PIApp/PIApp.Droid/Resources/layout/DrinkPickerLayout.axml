@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Ital típusa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:textSize="20dp" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="50.5dp"
+        android:id="@+id/lvDrinkType"
+        android:choiceMode="singleChoice"
+        android:fastScrollEnabled="true"
+        android:smoothScrollbar="true"
+        android:scrollbars="vertical" />
+    <TextView
+        android:text="Ital márkája"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:gravity="center"
+        android:textSize="20dp" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="50.5dp"
+        android:id="@+id/lvBrandType"
+        android:choiceMode="singleChoice"
+        android:fastScrollEnabled="true"
+        android:smoothScrollbar="true"
+        android:scrollbars="vertical" />
+    <TextView
+        android:text="Fogyasztott mennyiség"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:gravity="center"
+        android:textSize="20dp" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="50.5dp"
+        android:id="@+id/lvQuantity"
+        android:choiceMode="singleChoice"
+        android:fastScrollEnabled="true"
+        android:smoothScrollbar="true"
+        android:scrollbars="vertical" />
+    <Button
+        android:text="Egészségemre! :-)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cmdDrink" />
+</LinearLayout>

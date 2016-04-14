@@ -129,6 +129,19 @@ namespace PIApp.Droid
                 }
             }
 
+            //Elõzõ kör ismétlése gomb megnyomása
+            elozoKor.Click += delegate
+            {
+
+            };
+
+            //Új kör gomb megnyomása
+            ujKor.Click += delegate
+            {
+                ShowDrink();
+            };
+
+            //Buli vége gomb megnyomása
             endParty.Click += delegate
            {
               
@@ -158,6 +171,12 @@ namespace PIApp.Droid
             });
         }
 
+        public void ShowDrink()
+        {
+            var alert = new AlertDialog.Builder(this);
+            alert.SetView(LayoutInflater.Inflate(Resource.Layout.DrinkPickerLayout, null));
+            alert.Create().Show();
+        }
         
         public void ShowYesNo(string title, string message)
         {

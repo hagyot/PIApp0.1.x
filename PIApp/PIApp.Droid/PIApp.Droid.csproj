@@ -47,6 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drinking.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PartyActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -73,6 +74,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\StatisticsLayout.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\DrinkPickerLayout.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -37,8 +37,14 @@ namespace PIApp.Droid
             //Check profile data exist
             if (checkFileExist(filename) == false)
             {
-                ShowAlert("Üdvözöllek! Kérlek készítsd el a profilodat!");
+                ShowAlert("Profil készítése","Üdvözöllek! Kérlek készítsd el a profilodat!");
+                //A settings tab meghívása
                 TabHost.SetCurrentTabByTag("settings");
+                //A többi tab letiltása amíg a settings folyik
+                TabHost.TabWidget.GetChildTabViewAt(0).Enabled = false;
+                TabHost.TabWidget.GetChildTabViewAt(1).Enabled = false;
+                TabHost.TabWidget.GetChildTabViewAt(2).Enabled = false;
+                TabHost.TabWidget.GetChildTabViewAt(3).Enabled = false;
             }
             
             // Get our button from the layout resource,
@@ -70,10 +76,11 @@ namespace PIApp.Droid
             return exist;
         }
 
-        public void ShowAlert(string str)
+        public void ShowAlert(string title, string message)
         {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            alert.SetTitle(str);
+            alert.SetTitle(title);
+            alert.SetMessage(message);
             alert.SetPositiveButton("OK", (senderAlert, args) => {
                 // write your own set of instructions
             });

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.piapp"
           android:versionCode="1"
-          android:versionName="0.1">
+          android:versionName="0.1.5">
 	<uses-sdk android:minSdkVersion="15" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -24,5 +24,6 @@
     <activity android:name=".StatisticsActivity"/>
     <activity android:name=".StatusActivity"/>
     <activity android:name=".TravelActivity"/>
+  <activity android:name=".Drinking"/>
   </application>
 </manifest>
