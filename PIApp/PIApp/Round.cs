@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PIApp
 {
-    class Round
+    public class Round
     {
         //Declare fields
 

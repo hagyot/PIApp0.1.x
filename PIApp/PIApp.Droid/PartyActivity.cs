@@ -124,6 +124,7 @@ namespace PIApp.Droid
 
                     //Ellenõrizzük, hogy történt-e már ivás (megvan-e a fájl)
                     string partyname = currentpiappbeolvasas[0];
+                    startpartystr = currentpiappbeolvasas[1];
                     var path2 = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                     var currentdrinks = Path.Combine(path2.ToString(), partyname + "drinks.piapp");
 
@@ -131,7 +132,7 @@ namespace PIApp.Droid
                     {
 
                         List<string> drinklist = new List<string>();
-                        drinklist = ReadFromFile(startpartystr + partyname + "drinks.piapp");
+                        drinklist = ReadPartyFromFile(startpartystr + partyname + "drinks.piapp");
                         ShowAlert("Teszt", drinklist.Count.ToString());
 
                         //Rendrakás a kijelzõn
@@ -290,17 +291,13 @@ namespace PIApp.Droid
 
             try
             {
-                /* for (int i = 0; i < 2; ++i)
+                 for (int i = 0; i < 2; ++i)
                  {
                      content.Add(streamReader.ReadLine());
                  }
-                 */
+                 
 
-                while (!streamReader.EndOfStream)
-                {
-                    content.Add(streamReader.ReadLine());
-                    ShowAlert("teszt", streamReader.ReadLine());
-                }
+               
             
 
 
@@ -365,6 +362,20 @@ namespace PIApp.Droid
             {
                 File.Delete(filename);
             }
+        }
+
+        public List<string> ReadPartyFromFile(string fname)
+        {
+            var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var filename = Path.Combine(path.ToString(), fname);
+            FileStream fs = null;
+
+            List<string> content = new List<string>();
+
+
+
+            return content;
+            
         }
 
     }
